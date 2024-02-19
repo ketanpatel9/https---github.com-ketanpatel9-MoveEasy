@@ -1,95 +1,44 @@
-import React, { useState } from 'react';
-import '../Login.css'; // Make sure to create and import your CSS file
+// Login.js
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../Login.css'; // Make sure your CSS file is correctly referenced
 
 function Login() {
-  const [form, setForm] = useState({
-    signInUsername: '',
-    signInPassword: '',
-    signUpUsername: '',
-    signUpEmail: '',
-    signUpPassword: '',
-    signUpAddress: ''
-  });
-  const [isSignUp, setIsSignUp] = useState(false);
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // You will need to add logic for authenticating the user here
+    console.log('Login logic goes here');
+    // navigate('/dashboard');
   };
 
-  const handleSubmitSignIn = (e) => {
-    e.preventDefault();
-    // Handle sign in logic here
-    console.log('Sign In', form.signInUsername, form.signInPassword);
-  };
-
-  const handleSubmitSignUp = (e) => {
-    e.preventDefault();
-    // Handle sign up logic here
-    console.log('Sign Up', form.signUpUsername, form.signUpEmail, form.signUpPassword, form.signUpAddress);
-  };
-
-  const toggleForms = () => {
-    setIsSignUp(!isSignUp);
+  const handleGoogleSignIn = () => {
+    // You will need to implement Google Sign-In logic here
+    console.log('Google Sign-In logic goes here');
+    // navigate('/dashboard');
   };
 
   return (
-    <div className="container">
-      {isSignUp ? (
-        <form onSubmit={handleSubmitSignUp} className="sign-up-form">
-          <h2 className="title">Sign up</h2>
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input type="text" placeholder="Username" name="signUpUsername" value={form.signUpUsername} onChange={handleChange} />
+    <div className="login-container">
+      <div className="login-form">
+        <h2>Sign in</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <input type="text" placeholder="Username" name="username" required />
           </div>
-          <div className="input-field">
-            <i className="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" name="signUpEmail" value={form.signUpEmail} onChange={handleChange} />
+          <div className="input-group">
+            <input type="password" placeholder="Password" name="password" required />
           </div>
-          <div className="input-field">
-            <i className="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="signUpPassword" value={form.signUpPassword} onChange={handleChange} />
-          </div>
-          <div className="input-field">
-            <i className="fas fa-address-card"></i>
-            <input type="text" placeholder="Address" name="signUpAddress" value={form.signUpAddress} onChange={handleChange} />
-          </div>
-          <button type="submit" className="btn">Sign Up</button>
-          <p className="social-text">Or Sign up with social platforms</p>
-          <div className="social-media">
-            {/* Add your social media links */}
-          </div>
-          <p className="account-text">
-            Already have an account? <a href="#" onClick={toggleForms}>Sign in</a>
-          </p>
+          <button type="submit" className="login-button">LOGIN</button>
+          <button type="button" onClick={handleGoogleSignIn} className="google-sign-in-button">
+            Sign in with Google
+          </button>
         </form>
-      ) : (
-        <form onSubmit={handleSubmitSignIn} className="sign-in-form">
-          <h2 className="title">Sign in</h2>
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input type="text" placeholder="Username" name="signInUsername" value={form.signInUsername} onChange={handleChange} />
-          </div>
-          <div className="input-field">
-            <i className="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="signInPassword" value={form.signInPassword} onChange={handleChange} />
-          </div>
-          <button type="submit" className="btn">Login</button>
-          <p className="social-text">Or Sign in with social platforms</p>
-          <div className="social-media">
-            {/* Add your social media links */}
-          </div>
-          <p className="account-text">
-            Don't have an account? <a href="#" onClick={toggleForms}>Sign up</a>
-          </p>
-        </form>
-      )}
+      </div>
     </div>
   );
 }
 
 export default Login;
-

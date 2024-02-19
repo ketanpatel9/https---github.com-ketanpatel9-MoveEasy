@@ -5,6 +5,12 @@
     font-family: 'Arial', sans-serif;
     text-align: center;
     padding: 40px 20px;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Customer Support Header */

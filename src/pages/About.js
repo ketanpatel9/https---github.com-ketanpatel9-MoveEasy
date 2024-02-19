@@ -3,7 +3,7 @@ import '../About.css'; // Assuming you will create a corresponding CSS file
 
 function About() {
   return (
-    <div className="about-container">
+    <div className="about-container" style = {{backgroundColor: '#f0f0f0'}}>
       <h1 className="about-header">ABOUT US</h1>
       <div className="about-content">
         <p>

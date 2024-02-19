@@ -1,8 +1,15 @@
 .about-container {
     font-family: Arial, sans-serif;
-    max-width: 1200px;
+    display: flex;
     margin: auto;
     padding: 20px;
+    background: white;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .about-header {
@@ -14,6 +21,7 @@
   .about-content {
     text-align: justify;
     margin-bottom: 20px;
+    
   }
   
   .about-image {

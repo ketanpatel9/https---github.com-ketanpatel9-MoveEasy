@@ -1,11 +1,18 @@
 .home-container {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; 
+    background: white;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .hero-section {
     height: 400px;
     background-size: cover;
-    color: white;
+    color: rgb(244, 244, 244);
     text-align: center;
     padding-top: 100px;
   }

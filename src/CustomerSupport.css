@@ -1,0 +1,76 @@
+/* Customer Support Page Main Container */
+.help-center {
+    background-color: #f0f0f0; /* Updated to the consistent light grey background */
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Customer Support Header */
+.header h1 {
+    color: #0047ba; /* Consistent color theme */
+    margin-bottom: 10px;
+}
+
+.header p {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Services Section */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual Service Card */
+.service {
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.service .icon {
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.service h2 {
+    color: #0047ba;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.service a {
+    color: #1a73e8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.service a:hover {
+    color: #0b59d0;
+}
+
+/* Responsive Design for Services */
+@media (max-width: 1024px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        width: 80%; /* Adjust for narrower screens */
+    }
+}

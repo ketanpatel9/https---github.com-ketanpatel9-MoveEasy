@@ -1,32 +1,62 @@
-.about-container {
-    font-family: Arial, sans-serif;
-    display: flex;
-    margin: auto;
-    padding: 20px;
-    background: white;
+.base {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
 
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.about-first {
+  background-color: black;
+  width: 100vw;
+  color: white;
+  padding: top 0;
+}
+
+.about-first h1 {
+  padding: 30px;
+  text-align: center;
+  color: white;
+  height: 100px;
+}
+
+.about-second {
+  background-color: antiquewhite;
+  display: flex;
+  color: black;
+  height: 300px; 
+}
+
+.about-second img {
+  padding: 20px;
+  order: 1;
+  width: 500px;
   
-  .about-header {
-    color: #0047ba;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .about-content {
-    text-align: justify;
-    margin-bottom: 20px;
-    
-  }
-  
-  .about-image {
-    width: 100%; /* Adjust as necessary for your layout */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px 0;
-  }
-  
+}
+
+.about-second text {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 200%;
+  padding: 20px;
+}
+
+.about-third {
+  background-color: antiquewhite;
+  display: flex;
+  color: black;
+  height: 300px; 
+}
+
+.about-third img {
+  padding: 20px;
+  order: 1;
+  width: 500px;
+}
+
+.about-third text {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 200%;
+  padding: 20px;
+}
+
+

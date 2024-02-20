@@ -1,0 +1,24 @@
+.base {
+    background-color: antiquewhite;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.su-first {
+    background-color: black;
+    width: 100vw;
+    color: white;
+    padding: top 0;
+  }
+  
+.su-first h1 {
+    padding: 30px;
+    text-align: center;
+    color: white;
+    height: 100px;
+  }
+  .container {
+    background-color: antiquewhite;
+  }

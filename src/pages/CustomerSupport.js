@@ -1,52 +1,62 @@
-import React from 'react';
-import '../CustomerSupport.css'; // Assuming your styles are in this file
+import React, { useState } from 'react';
+import '../CustomerSupport.css';
 
 function CustomerSupport() {
-  // Replace the placeholders with actual values
-  const phoneNumberCustomerSupport = "Your Customer Support Phone Number Here";
-  const phoneNumberPackersMovers = "Your Packers and Movers Phone Number Here";
-  const phoneNumberEnterpriseServices = "Your Enterprise Services Phone Number Here";
-  const phoneNumberDriveWithUs = "Your Drive With Us Phone Number Here";
-  
-  return (
-    <div className="help-center">
-      <div className="header">
-        <h1>HELP CENTER</h1>
-        <p>Need assistance? We're happy to help, reach us out through the appropriate channels below.</p>
-      </div>
-      
-      <div className="services">
-        <div className="service">
-          <div className="icon">{/* Add icon component or img tag here */}</div>
-          <h2>CUSTOMER SUPPORT</h2>
-          <p>Click <a href="#">here</a> to read our FAQs</p>
-          <p>For support with your bookings and other queries, email us at <a href="mailto:help@moveeasy.us">help@moveeasy.us</a> or call us on {phoneNumberCustomerSupport}</p>
-        </div>
-        
-        <div className="service">
-          <div className="icon">{/* Add icon component or img tag here */}</div>
-          <h2>PACKERS AND MOVERS</h2>
-          <p>For queries and support regarding your house shifting booking, email us at <a href="mailto:packermover@moveeasy.us">packermover@moveeasy.us</a> or call us on {phoneNumberPackersMovers}</p>
-        </div>
-        
-        <div className="service">
-          <div className="icon">{/* Add icon component or img tag here */}</div>
-          <h2>ENTERPRISE SERVICES</h2>
-          <p>If you are an enterprise client and need trucks in bulk for your business, <a href="#">Click here</a> or mail us at <a href="mailto:enterprise@moveeasy.us">enterprise@moveeasy.us</a></p>
-        </div>
+  const [showAnswers, setShowAnswers] = useState({});
 
-        <div className="service">
-          <div className="icon">{/* Add icon component or img tag here */}</div>
-          <h2>DRIVE WITH MOVEEASY</h2>
-          <p>Are you a truck owner? Increase your earnings by partnering with us. <a href="#">Click here</a> or reach us out on {phoneNumberDriveWithUs}</p>
+  // Function to toggle answer visibility
+  const toggleAnswer = (question) => {
+    setShowAnswers(prevState => ({
+      ...prevState,
+      [question]: !prevState[question]
+    }));
+  };
+
+  return (
+    <div className="base">
+      <div className="cs-first">
+        <h1>
+        Customer Support
+        </h1>
+      </div>
+      <div className="customer-support">
+        <div className="header">
+          <p>Welcome to our customer support page. We're here to assist you.</p>
         </div>
         
-        {/* Add more services as needed */}
+        <div className="contact-info">
+          <h2>Contact Information</h2>
+          <p>If you have any questions or concerns, feel free to reach out to us:</p>
+          <ul>
+            <li>Email: support@moveasy.com</li>
+            <li>Phone: +1-123-456-7890</li>
+          </ul>
+        </div>
         
+        <div className="faq">
+          <h2>Frequently Asked Questions</h2>
+          <p>Check out our FAQs to find answers to common queries:</p>
+          <ul>
+            <li onClick={() => toggleAnswer('booking')}>How can I book your services?
+              {showAnswers['booking'] && (
+                <p className="answer">You can book our services by visiting our website or contacting our support team.</p>
+              )}
+            </li>
+            <li onClick={() => toggleAnswer('pricing')}>What are your pricing plans?
+              {showAnswers['pricing'] && (
+                <p className="answer">Our pricing plans vary depending on the type and duration of the service. Please visit our pricing page for more details.</p>
+              )}
+            </li>
+            <li onClick={() => toggleAnswer('packingMaterials')}>Do you provide packing materials?
+              {showAnswers['packingMaterials'] && (
+                <p className="answer">Yes, we provide packing materials as part of our service package. You can also purchase additional packing materials if needed.</p>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
 }
 
 export default CustomerSupport;
-;

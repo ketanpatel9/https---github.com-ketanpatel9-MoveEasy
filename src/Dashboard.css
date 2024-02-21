@@ -1,0 +1,65 @@
+/* Base container that holds both sections */
+.base {
+  
+  display: flex; /* Use flexbox for the layout */
+  flex-direction: row; 
+  height: 100vh; 
+  width: 100vw;
+ 
+}
+
+
+/* Left-hand side section */
+.dashboard-left {
+  flex: 15%;
+  background-color: blanchedalmond;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the element's total dimensions */
+}
+
+/* Dashboard heading */
+.dashboard-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-style: oblique;
+  
+ 
+}
+
+/* Links */
+.dashboard-left div {
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+/* Active link */
+.dashboard-left .active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Right-hand side section */
+.dashboard-right {
+  flex: 85%;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the element's total dimensions */
+}
+
+/* Content areas */
+.profile-content,
+.history-content,
+.recent-activity-content {
+  margin-bottom: 20px;
+}
+
+/* Heading styles */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Text styles */
+p {
+  color: #333;
+}

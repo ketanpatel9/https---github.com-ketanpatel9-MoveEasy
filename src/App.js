@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import CustomerSupport from './pages/CustomerSupport';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/support" element={<CustomerSupport />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+
+          <Route path="/" exact element={<Login />} /> {/* Redirect to login page by default */}
         </Routes>
       </div>
     </Router>

@@ -1,41 +1,110 @@
-// Login.js
-
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Login.css'; // Make sure your CSS file is correctly referenced
 
 function Login() {
   const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [isNewUser, setIsNewUser] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // You will need to add logic for authenticating the user here
-    console.log('Login logic goes here');
-    // navigate('/dashboard');
+    if (isNewUser) {
+      // Logic for signing up a new user
+      console.log('Sign up logic goes here', { username, password, firstName, lastName, address, email });
+    } else {
+      // Logic for logging in an existing user
+      console.log('Login logic goes here', { username, password });
+    }
+    navigate('/dashboard');
   };
 
   const handleGoogleSignIn = () => {
-    // You will need to implement Google Sign-In logic here
+    // Logic for Google Sign-In
     console.log('Google Sign-In logic goes here');
-    // navigate('/dashboard');
+    navigate('/dashboard');
   };
 
   return (
     <div className="login-container">
       <div className="login-form">
-        <h2>Sign in</h2>
+        <h2>{isNewUser ? 'Sign up' : 'Sign in'}</h2>
         <form onSubmit={handleSubmit}>
+          {isNewUser && (
+            <>
+              <div className="input-group">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="text"
+                  placeholder="Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+            </>
+          )}
           <div className="input-group">
-            <input type="text" placeholder="Username" name="username" required />
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
           </div>
           <div className="input-group">
-            <input type="password" placeholder="Password" name="password" required />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
-          <button type="submit" className="login-button">LOGIN</button>
+          <button type="submit" className="login-button">
+            {isNewUser ? 'SIGN UP' : 'LOGIN'}
+          </button>
           <button type="button" onClick={handleGoogleSignIn} className="google-sign-in-button">
             Sign in with Google
           </button>
         </form>
+        <p onClick={() => setIsNewUser(!isNewUser)}>
+          {isNewUser ? 'Already have an account? Sign in' : 'New user? Sign up here'}
+        </p>
       </div>
     </div>
   );
